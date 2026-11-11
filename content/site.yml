@@ -1,0 +1,33 @@
+name: Tevin Rivera
+title: Senior Frontend Engineer
+location: Philadelphia, PA
+greeting: Yerp 👋 (that's hello in Philly)
+headline: I build fast, accessible front ends for products with a lot of data behind them.
+bio:
+  - I'm Tevin, a senior frontend engineer with nearly a decade of Vue, Nuxt and TypeScript across e-commerce, hospitality and agency work. Most recently I spent nearly four years rebuilding Brad's Deals on Nuxt.
+  - I like turning messy data into fast, friendly interfaces, and asking what problem we're really solving before I build the component.
+about:
+  - I'm a senior frontend engineer in Philadelphia. I got into the web through a high school media arts class (Photoshop, Illustrator, photography and my first WordPress site) and never really left.
+  - After a B.S. in Computer Science from Rutgers–Camden, I was the first full-time hire at Brainyloft, then co-founded Jolt Creative Agency, where I led development across React, Python/Django and some VR/AR. From there I spent three years at King & Partners building headless Vue and Nuxt sites for fashion and hospitality brands.
+  - Most recently I spent nearly four years at Brad's Deals, helping move the site from Rails to Nuxt and bringing a pile of data sources together into one fast, accessible front end. I'm now looking for my next senior frontend or full-stack role.
+# headshot: /media/tevin-rivera.jpg  # TODO(Tevin): add photo to public/media and uncomment
+howIWork:
+  - title: Start with the problem
+    body: Before I build the component in front of me, I step back and ask what problem we're actually trying to solve. Sometimes the best fix is a smaller one.
+  - title: Performance and accessibility are part of done
+    body: Core Web Vitals and WCAG aren't a cleanup pass. I keep load time, layout shift and keyboard and screen-reader access in scope from the first commit through every redesign.
+  - title: Many sources, one experience
+    body: Real products pull from CMSs, caches, legacy systems and microservices. My job is to make all of it load efficiently and read to users as if it came from one place.
+  - title: AI-accelerated, human-judged
+    body: I use Claude Code to prototype, build and review faster. I still own the definition of the problem, the bar for quality, and the final call on what ships.
+contact:
+  - { label: Email, href: 'mailto:tevdevelops@gmail.com', icon: 'lucide:mail' }
+  - { label: LinkedIn, href: 'https://www.linkedin.com/in/tevdevelops/', icon: 'lucide:linkedin' }
+  - { label: GitHub, href: 'https://github.com/tevdevelops', icon: 'lucide:github' }
+  - { label: Resume, href: '/tevin-rivera-resume.pdf', icon: 'lucide:file-text' }
+skills:
+  - { group: Front end, items: [Vue.js, Nuxt, TypeScript, JavaScript, HTML, CSS] }
+  - { group: Data and back end, items: [REST APIs, JSON, Redis, Elasticsearch, Contentstack, WordPress, Python] }
+  - { group: Tools and platforms, items: [Claude Code, AWS, Git, GitHub, Cloudflare] }
+  - { group: Performance and accessibility, items: [Core Web Vitals / PageSpeed, Web Accessibility (ADA/WCAG)] }
+education: { degree: B.S. Computer Science, school: Rutgers University–Camden, year: 2017 }

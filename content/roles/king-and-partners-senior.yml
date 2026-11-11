@@ -1,0 +1,11 @@
+org: King & Partners
+title: Senior Web Developer
+start: '2021-01'
+end: '2022-08'
+location: Philadelphia, PA
+remote: true
+bullets:
+  - Led and supported development projects for fashion, hospitality, and e-commerce clients.
+  - Worked directly with creative and account management teams to plan timelines, processes, and communication standards.
+  - Built on a headless stack using Vue, Nuxt, Elasticsearch, Redis, WordPress, and AWS.
+  - Prioritized ADA accessibility on e-commerce and hospitality projects, building interfaces that work for all users.

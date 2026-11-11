@@ -1,0 +1,9 @@
+name: Grandlife Hotels
+blurb: Three years of work on a family of NYC hotel, bar, restaurant and cinema sites, including a whimsical, pixel-perfect microsite for each venue.
+org: King & Partners
+stack: [Ruby on Rails, Redis, WordPress Multisite, SCSS]
+links:
+  - { label: Grandlife, url: 'https://grandlife.com/' }
+  - { label: Roxy Hotel, url: 'https://roxyhotelnyc.com/' }
+  - { label: Soho Diner, url: 'https://sohodinernyc.com/' }
+order: 2

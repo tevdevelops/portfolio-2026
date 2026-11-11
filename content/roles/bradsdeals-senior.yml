@@ -1,0 +1,12 @@
+org: Brad's Deals
+title: Senior Front End Developer
+start: '2024-01'
+end: '2026-11'
+location: Philadelphia, PA
+remote: true
+bullets:
+  - Helped migrate the site from a legacy Rails build to a modern Vue/Nuxt application, then kept evolving it through repeated rebuilds and redesigns.
+  - Unified data from Contentstack, Redis-cached layers over internal APIs, a legacy CMS, and several internal microservices into a single codebase, so content loads efficiently and reads to users as if it came from one source.
+  - Continuously monitored and improved Google PageSpeed and Core Web Vitals metrics, including load times and Cumulative Layout Shift (CLS), as the site evolved.
+  - Kept ADA accessibility in scope across new pages, components, and redesigns.
+  - Used Claude Code to prototype, build, review, and help ship features, speeding up delivery while keeping human judgment on problem definition and quality.

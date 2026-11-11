@@ -1,0 +1,7 @@
+name: Crossbay
+blurb: A lean static site for a logistics platform, with a custom-styled Google Map of distribution centers (clusters, hotspots and pins). My first Vue project.
+org: King & Partners
+stack: [Vue, Gridsome, WordPress, Google Maps API]
+links:
+  - { label: Live site, url: 'https://crossbay.com/' }
+order: 1

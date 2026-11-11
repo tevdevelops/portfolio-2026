@@ -22,3 +22,6 @@ logs
 .env
 .env.*
 !.env.example
+
+# Private resume (contains phone number); publish a phone-free copy as tevin-rivera-resume.pdf
+public/tevin-rivera-resume-v2.pdf

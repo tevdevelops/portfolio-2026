@@ -1,0 +1,79 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Dark mode is driven by the `.dark` class from @nuxtjs/color-mode. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Design tokens: "Swiss split" direction (prototype variant B) with the Phillies red accent from variant A.
+ * Prototype source: branch prototype/home-visual-direction.
+ * Use as Tailwind utilities: bg-bg, text-ink, text-muted, text-accent, border-rule, font-sans, font-mono.
+ */
+@theme {
+  --color-bg: #f2f2f0;
+  --color-ink: #0e0e0e;
+  --color-muted: #5f5f5c;
+  --color-accent: #c8102e;
+  --color-rule: #cfcfca;
+
+  --font-sans: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+@layer base {
+  .dark {
+    --color-bg: #0e0e0e;
+    --color-ink: #f2f2f0;
+    --color-muted: #9a9a95;
+    --color-accent: #ff6b6b;
+    --color-rule: #2a2a28;
+  }
+
+  html {
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@utility media-placeholder {
+  background: repeating-linear-gradient(135deg, var(--color-rule) 0 1px, transparent 1px 12px);
+  outline: 1px solid var(--color-rule);
+}
+
+/* Long-form copy (Case Studies, Posts), mapped onto the site tokens. */
+@utility prose-site {
+  --tw-prose-body: var(--color-ink);
+  --tw-prose-headings: var(--color-ink);
+  --tw-prose-lead: var(--color-muted);
+  --tw-prose-links: var(--color-accent);
+  --tw-prose-bold: var(--color-ink);
+  --tw-prose-counters: var(--color-muted);
+  --tw-prose-bullets: var(--color-accent);
+  --tw-prose-hr: var(--color-rule);
+  --tw-prose-quotes: var(--color-ink);
+  --tw-prose-quote-borders: var(--color-accent);
+  --tw-prose-captions: var(--color-muted);
+  --tw-prose-code: var(--color-ink);
+  --tw-prose-th-borders: var(--color-rule);
+  --tw-prose-td-borders: var(--color-rule);
+
+  & :where(h2, h3) {
+    scroll-margin-top: 2rem;
+    letter-spacing: -0.02em;
+  }
+}

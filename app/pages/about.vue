@@ -12,7 +12,10 @@ useSeoMeta({
 <template>
   <div v-if="site" class="mx-auto max-w-7xl px-6 md:px-10">
     <section class="grid gap-10 py-14 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:py-20">
-      <SiteHeadshot :src="site.headshot" :alt="`Portrait of ${site.name}`" class="max-w-sm" />
+      <!-- Smaller on phones so the bio starts above the fold; full column width from md up. -->
+      <div class="w-3/5 max-w-sm md:w-full">
+        <SiteHeadshot :src="site.headshot" :alt="`Portrait of ${site.name}`" />
+      </div>
       <div>
         <p class="font-mono text-sm text-muted">{{ site.greeting }}</p>
         <h1 class="mt-3 text-4xl leading-[1.05] font-bold tracking-tight md:text-6xl">About</h1>

@@ -22,7 +22,13 @@ useSeoMeta({
   <div v-if="site" class="mx-auto grid max-w-7xl md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
     <header class="border-rule px-6 py-10 md:sticky md:top-0 md:h-screen md:overflow-y-auto md:border-r md:px-10 md:py-12">
       <div class="flex min-h-full flex-col">
-        <TevMark class="size-20 text-ink md:size-28" :framed="false" />
+        <!-- Phones: nav shares the top row with the mark, like the other pages' header. -->
+        <div class="flex items-start justify-between gap-4">
+          <TevMark class="size-12 shrink-0 text-ink md:size-28" :framed="false" />
+          <div class="pt-1 md:hidden">
+            <SiteNav />
+          </div>
+        </div>
         <p class="mt-10 font-mono text-sm text-muted">{{ site.greeting }}</p>
         <h1 class="mt-3 text-5xl leading-none font-bold tracking-tight md:text-6xl">{{ site.name }}</h1>
         <p class="mt-4 font-mono text-sm text-accent">// {{ site.title.toLowerCase() }}</p>
@@ -37,7 +43,9 @@ useSeoMeta({
         <p class="font-mono text-xs text-muted uppercase">
           Case studies / {{ String(studies?.length ?? 0).padStart(2, '0') }}
         </p>
-        <SiteNav />
+        <div class="hidden md:block">
+          <SiteNav />
+        </div>
       </div>
 
       <section id="work" aria-labelledby="work-heading">

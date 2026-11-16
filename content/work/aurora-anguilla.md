@@ -10,6 +10,7 @@ outcomes:
   - Full site shipped in two phases over two months
   - First end-to-end build on the agency's headless Nuxt stack
   - Editors kept WordPress; visitors got a static, fast front end
+cover: /media/work/aurora-anguilla/cover.jpg
 liveUrl: https://www.auroraanguilla.com/
 order: 2
 featured: true
@@ -32,5 +33,8 @@ I started from the agency's Nuxt base template, which came with WordPress, Vue a
 Growing CMS data is a known problem for static site generators: several editors change pages at once, sometimes during a production deploy. The agency's incremental-build system rebuilt one page at a time, which kept uptime high while editors worked.
 
 ## Outcome
+
+::site-video{src="/media/work/aurora-anguilla/site-scroll.mp4" poster="/media/work/aurora-anguilla/cover.jpg" caption="A scroll through the finished homepage."}
+::
 
 The whole site went from design hand-off to launch in two months. It was my first project on the stack from start to finish, and it made me a lasting Vue and Nuxt advocate.

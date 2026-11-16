@@ -10,6 +10,7 @@ outcomes:
   - Finished the Rails → Nuxt migration as the sole front-end developer
   - Member pricing that never ships in cached HTML
   - Led the search rebuild from first commit to release
+cover: /media/work/brads-deals/cover.jpg
 liveUrl: https://www.bradsdeals.com/
 order: 1
 featured: true
@@ -21,6 +22,9 @@ Brad's Deals is a deal-discovery site. Editors find good deals across the intern
 
 When I started in January 2023, the site was split. A proof of concept had moved a handful of pages to Nuxt, but most of the site still ran on an aging Rails app. Content was split too: editors still worked in a legacy CMS while new content types were being modeled in Contentstack. The goal was a modern Vue and Nuxt front end: easier to hire for, nicer to build in, with server rendering for SEO and app-like navigation once it loads.
 
+::figure-pair{first="/media/work/brads-deals/rails-2022.jpg" first-alt="Brad's Deals homepage in November 2022: navy header, category bar and a Featured Deals box of product photos" first-label="Nov 2022 · Rails" second="/media/work/brads-deals/cover.jpg" second-alt="Brad's Deals homepage in November 2026: a Today's Top Deals slider of large deal cards in green and sage" second-label="Nov 2026 · Nuxt" caption="The homepage before and after. The 2022 capture is from the Wayback Machine."}
+::
+
 I joined a team of four front-end developers. The Nuxt 3 and Pinia foundations were already in place, so my early work was building out the patterns we needed as more content moved into Contentstack: receiving each new content type, normalizing it, and rendering it alongside data from the older systems.
 
 The work came in waves:
@@ -29,7 +33,7 @@ The work came in waves:
 2. Moving the deal feeds onto the new search API
 3. A post detail page refresh
 4. The acquisition modal and social sign-on
-5. A search page rebuild, which I led
+5. A search page rebuild
 6. A homepage redesign and migration
 7. A new color palette and a second post detail refresh
 8. Members-only deals
@@ -74,19 +78,31 @@ The fix was to make the server the gatekeeper:
 - **The locked view can't leak.** It renders a decoy with fake text and a fake price, and the component doesn't accept real post data at all.
 - **The token never touches the server's shared state.** It lives only in the browser, so one visitor's session can't bleed into another visitor's server-rendered page.
 
+::figure-pair{first="/media/work/brads-deals/member-post-locked.jpg" first-alt="Member-only post while logged out: a price-free headline, blurred decoy text, and a Log In or Create Account card where the price would be" first-label="Logged out" second="/media/work/brads-deals/member-post-unlocked.jpg" second-alt="The same post while logged in: the real headline with the price, the write-up, a member price and retail price, instant savings, and a Get this Offer button" second-label="Logged in" caption="The same member-only post, both ways. Logged out, the page has a price-free headline and decoy text; the real price never left the server. Captured on the staging site, where a member-only test deal was live."}
+::
+
 The interesting work was the reveal. A homepage might show a dozen member-only tiles. After login, a client-side plugin collects every masked post on the page and reveals them all with **one** batched request, then updates their records in the store. Every tile showing those posts re-renders on its own, and nothing else is refetched. On logout the same path runs in reverse and re-masks them. To avoid a jarring locked-then-unlocked flash for returning members, the featured block holds a skeleton briefly while a reveal is likely, capped at 2.5 seconds.
+
+::figure-pair{first="/media/work/brads-deals/member-tile-locked.jpg" first-alt="Homepage tile for a member-only deal while logged out: a members banner, blurred description and a Join for Free button" first-label="Logged out" second="/media/work/brads-deals/member-tile-unlocked.jpg" second-alt="The same homepage tile after login: the real headline and description and an Access Offer button" second-label="After login" caption="A homepage tile before and after login. The tile never fetches anything itself; one batched reveal updates the store and every tile showing the post re-renders."}
+::
 
 Around membership I also built the acquisition experience. I helped shape the content model in Contentstack so marketing could create modal variants (headline, copy, call to action, layout) and launch campaign-specific versions from a URL parameter without a deploy. The modal waits until the visitor has started scrolling, skips logged-in users and known subscribers, and limits how often it appears. A dedicated membership drawer followed for member campaigns. I integrated sign-on with Google (including One Tap), Facebook and Apple against the users service, with every provider ending in the same session handling.
 
-## Search, which I led
+## Rebuilding search
 
 I led the rebuild of the search results page, released in August 2024. Results load from the search API in pages of 12, with sort options and filters for brand, store, category and gender. The filter options come from the search response itself, so they always reflect what's actually in the results. Active filters show as removable chips.
+
+::case-figure{src="/media/work/brads-deals/search.jpg" alt="Search results for headphones: a search field, result count, Filters and Sort buttons, and a grid of deal tiles with favorite buttons" caption="Search results with filters, sort and the favorite button on every tile."}
+::
 
 The URL is the source of truth. Every search, filter and sort is reflected in the query string, so results can be shared and bookmarked, and the back button behaves the way people expect. Empty results fall back to top categories instead of a dead end. I also added store suggestions to the search bar's autocomplete.
 
 ## Redesigns without rot
 
 The post detail page was redesigned more than once, driven by product and data decisions about what made people click through to a deal. I built each version from a UI designer's Figma files, working closely with her and our QA manager to match designs and pass QA across mobile, tablet and desktop.
+
+::figure-pair{layout="device" first="/media/work/brads-deals/post-detail.jpg" first-alt="Post detail page on desktop: product image with favorite and share buttons, headline, write-up, deal voting, price with savings, and a Get This Deal button" first-label="Desktop" second="/media/work/brads-deals/post-detail-mobile.jpg" second-alt="The same post detail page on mobile, stacked vertically" second-label="Mobile" caption="The current post detail page, with the holiday theme live (captured November 2026)."}
+::
 
 Repeated redesigns are how codebases rot: the new version copies the old component, and both live forever. I kept rethinking the reusable pieces so each redesign removed code instead of adding a parallel copy:
 

@@ -10,7 +10,7 @@ about:
   - I'm a senior frontend engineer in Philadelphia. I got into the web through a high school media arts class (Photoshop, Illustrator, photography and my first WordPress site) and never really left.
   - After a B.S. in Computer Science from Rutgers–Camden, I was the first full-time hire at Brainyloft, then co-founded Jolt Creative Agency, where I led development across React, Python/Django and some VR/AR. From there I spent three years at King & Partners building headless Vue and Nuxt sites for fashion and hospitality brands.
   - Most recently I spent nearly four years at Brad's Deals, helping move the site from Rails to Nuxt and bringing a pile of data sources together into one fast, accessible front end. I'm now looking for my next senior frontend or full-stack role.
-# headshot: /media/tevin-rivera.jpg  # TODO(Tevin): add photo to public/media and uncomment
+headshot: /media/tevin-rivera.jpg
 howIWork:
   - title: Start with the problem
     body: Before I build the component in front of me, I step back and ask what problem we're actually trying to solve. Sometimes the best fix is a smaller one.

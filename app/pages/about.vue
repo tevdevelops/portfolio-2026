@@ -3,8 +3,8 @@ const { data: site } = await useAsyncData('site', () => queryCollection('site').
 const { data: roles } = await useAsyncData('roles', () =>
   queryCollection('roles').order('start', 'DESC').all())
 
-useSeoMeta({
-  title: 'About | Tevin Rivera',
+useSiteSeo({
+  title: 'About',
   description: 'Experience, skills and how Tevin Rivera works: senior frontend engineer in Philadelphia.',
 })
 </script>

@@ -12,10 +12,7 @@ const { data: studies } = await useAsyncData('home-case-studies', () =>
 const { data: projects } = await useAsyncData('home-projects', () =>
   queryCollection('projects').order('order', 'ASC').all())
 
-useSeoMeta({
-  title: 'Tevin Rivera | Senior Frontend Engineer',
-  description: () => site.value?.headline,
-})
+useSiteSeo({ description: site.value?.headline ?? 'Senior frontend engineer in Philadelphia.' })
 </script>
 
 <template>

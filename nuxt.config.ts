@@ -16,7 +16,11 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: { lang: 'en' },
-      link: [{ rel: 'icon', href: '/favicon.ico' }],
+      link: [
+        { rel: 'icon', href: '/favicon.ico', sizes: '48x48' },
+        { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
+        { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
+      ],
       meta: [
         { name: 'theme-color', content: '#f2f2f0', media: '(prefers-color-scheme: light)' },
         { name: 'theme-color', content: '#0e0e0e', media: '(prefers-color-scheme: dark)' },
@@ -24,6 +28,12 @@ export default defineNuxtConfig({
     },
   },
   css: ['~/assets/css/main.css'],
+  runtimeConfig: {
+    public: {
+      // Canonical origin for absolute URLs in link previews. The apex domain redirects to www.
+      siteUrl: 'https://www.tevdevelops.com',
+    },
+  },
   colorMode: {
     classSuffix: '',
     preference: 'system',

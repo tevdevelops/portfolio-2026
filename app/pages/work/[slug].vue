@@ -10,13 +10,7 @@ if (!study.value) {
 const { data: surround } = await useAsyncData(`case-study-surround-${route.path}`, () =>
   queryCollectionItemSurroundings('caseStudies', route.path, { fields: ['title', 'org'] }).order('order', 'ASC'))
 
-useSeoMeta({
-  title: `${study.value.title} | Tevin Rivera`,
-  description: study.value.summary,
-  ogTitle: study.value.title,
-  ogDescription: study.value.summary,
-  ogImage: study.value.cover,
-})
+useSiteSeo({ title: study.value.title, description: study.value.summary, image: study.value.cover, type: 'article' })
 
 const chapters = computed(() => study.value?.body.toc?.links ?? [])
 const body = ref<HTMLElement>()

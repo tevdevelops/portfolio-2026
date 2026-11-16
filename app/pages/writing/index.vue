@@ -2,7 +2,7 @@
 const { data: posts } = await useAsyncData('posts', () =>
   queryCollection('posts').order('date', 'DESC').all())
 
-useSeoMeta({ title: 'Writing | Tevin Rivera', description: 'Notes on frontend engineering and design by Tevin Rivera.' })
+useSiteSeo({ title: 'Writing', description: 'Notes on frontend engineering and design by Tevin Rivera.' })
 </script>
 
 <template>

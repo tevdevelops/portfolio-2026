@@ -7,13 +7,7 @@ if (!post.value) {
   throw createError({ statusCode: 404, statusMessage: 'Post not found', fatal: true })
 }
 
-useSeoMeta({
-  title: `${post.value.title} | Tevin Rivera`,
-  description: post.value.excerpt,
-  ogTitle: post.value.title,
-  ogDescription: post.value.excerpt,
-  ogImage: post.value.cover,
-})
+useSiteSeo({ title: post.value.title, description: post.value.excerpt, image: post.value.cover, type: 'article' })
 </script>
 
 <template>

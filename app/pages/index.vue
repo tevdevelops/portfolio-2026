@@ -3,7 +3,12 @@ definePageMeta({ layout: 'home' })
 
 const { data: site } = await useAsyncData('site', () => queryCollection('site').first())
 const { data: studies } = await useAsyncData('home-case-studies', () =>
-  queryCollection('caseStudies').where('featured', '=', true).order('order', 'ASC').all())
+  queryCollection('caseStudies')
+    .where('featured', '=', true)
+    .order('order', 'ASC')
+    // Cards only need these fields; skip shipping full Case Study bodies in the home payload.
+    .select('path', 'title', 'summary', 'org', 'period', 'status', 'stack', 'cover')
+    .all())
 const { data: projects } = await useAsyncData('home-projects', () =>
   queryCollection('projects').order('order', 'ASC').all())
 

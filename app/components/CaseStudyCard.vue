@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { CaseStudiesCollectionItem } from '@nuxt/content'
 
-defineProps<{ study: CaseStudiesCollectionItem }>()
+defineProps<{ study: Pick<CaseStudiesCollectionItem, 'path' | 'title' | 'summary' | 'org' | 'period' | 'status' | 'stack' | 'cover'> }>()
 </script>
 
 <template>

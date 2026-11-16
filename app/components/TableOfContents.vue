@@ -2,17 +2,7 @@
 import type { TocLink } from '@nuxt/content'
 
 const props = defineProps<{ links: TocLink[] }>()
-const active = ref(props.links[0]?.id)
-
-// Highlight the Chapter whose heading most recently crossed the top third of the viewport.
-onMounted(() => {
-  const headings = props.links.map(l => document.getElementById(l.id)).filter((el): el is HTMLElement => !!el)
-  useIntersectionObserver(headings, (entries) => {
-    for (const e of entries) {
-      if (e.isIntersecting) active.value = e.target.id
-    }
-  }, { rootMargin: '0px 0px -66% 0px' })
-})
+const active = useActiveHeading(() => props.links)
 </script>
 
 <template>

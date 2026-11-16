@@ -19,6 +19,7 @@ useSeoMeta({
 })
 
 const chapters = computed(() => study.value?.body.toc?.links ?? [])
+const body = ref<HTMLElement>()
 </script>
 
 <template>
@@ -60,11 +61,14 @@ const chapters = computed(() => study.value?.body.toc?.links ?? [])
 
     <NuxtImg v-if="study.cover" :src="study.cover" alt="" class="mx-auto aspect-[16/9] w-full max-w-7xl object-cover" sizes="sm:100vw xl:1280px" />
 
-    <div class="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-[14rem_minmax(0,1fr)] md:px-10">
-      <aside v-if="chapters.length > 1">
-        <TableOfContents :links="chapters" class="md:sticky md:top-8" />
+    <div class="mx-auto grid max-w-7xl gap-10 px-6 pb-14 md:grid-cols-[14rem_minmax(0,1fr)] md:px-10 md:pt-14">
+      <ChapterBar v-if="chapters.length > 1" :links="chapters" :target="body" />
+      <aside v-if="chapters.length > 1" class="hidden md:block">
+        <TableOfContents :links="chapters" class="sticky top-8" />
       </aside>
-      <ContentRenderer :value="study" class="prose prose-site prose-lg max-w-3xl md:col-start-2" />
+      <div ref="body" class="min-w-0 md:col-start-2">
+        <ContentRenderer :value="study" class="prose prose-site prose-lg max-w-3xl" />
+      </div>
     </div>
 
     <nav v-if="surround?.some(Boolean)" aria-label="More case studies" class="border-t border-rule">

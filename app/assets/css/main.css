@@ -72,8 +72,12 @@
   --tw-prose-th-borders: var(--color-rule);
   --tw-prose-td-borders: var(--color-rule);
 
+  /* Phones: clear the sticky Chapter bar (and header, when shown) when jumping to a Chapter. */
   & :where(h2, h3) {
-    scroll-margin-top: 2rem;
+    scroll-margin-top: 8rem;
+    @media (width >= 48rem) {
+      scroll-margin-top: 2rem;
+    }
     letter-spacing: -0.02em;
   }
 }

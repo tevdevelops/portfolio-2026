@@ -12,7 +12,7 @@ outcomes:
   - Editors kept WordPress; visitors got a static, fast front end
 cover: /media/work/aurora-anguilla/cover.jpg
 liveUrl: https://www.auroraanguilla.com/
-order: 2
+order: 3
 featured: true
 ---
 

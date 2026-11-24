@@ -11,6 +11,7 @@ export default defineNuxtConfig({
     '@nuxt/icon/module',
     '@nuxtjs/color-mode',
     '@vueuse/nuxt/module',
+    '@vercel/analytics',
   ],
   devtools: { enabled: true },
   app: {
@@ -22,8 +23,16 @@ export default defineNuxtConfig({
         { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
       ],
       meta: [
-        { name: 'theme-color', content: '#f2f2f0', media: '(prefers-color-scheme: light)' },
-        { name: 'theme-color', content: '#0e0e0e', media: '(prefers-color-scheme: dark)' },
+        {
+          name: 'theme-color',
+          content: '#f2f2f0',
+          media: '(prefers-color-scheme: light)',
+        },
+        {
+          name: 'theme-color',
+          content: '#0e0e0e',
+          media: '(prefers-color-scheme: dark)',
+        },
       ],
     },
   },
